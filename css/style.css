@@ -14,141 +14,152 @@ body {
 	overflow: hidden;
 }
 
-.christmas-card {
+.box {
+	padding: 80px 140px;
+	box-shadow: inset 0 0 50px tomato;
+	border-radius: 20px;
+	background-color: rgba(255, 0, 0, 0.2);
+}
+
+.link {
 	position: relative;
-	height: 500px;
-	width: 900px;
-	border-radius: 40px;
+	padding: 10px 20px;
+	font-size: 30px;
+	color: rgb(199, 138, 81);
+	text-decoration: none;
+
 }
 
-.christmas-bg {
+.link:hover {
+	cursor: none;
+}
+
+.link,
+.link::after,
+.link::before {
+	transition: transform .3s;
+}
+
+.one::after {
+	content: '';
 	position: absolute;
-	height: 100%;
+	height: 3px;
 	width: 100%;
-	background-position:center;
-	background-size: cover;
-	background-image: url(https://cdn.pixabay.com/photo/2020/05/20/10/17/christmas-5195815_960_720.jpg);
-	border-radius: 40px;
+	background-color: rgb(223, 135, 54);
+	left: 0;
+	bottom: 0;
+	transform: scaleX(0);
+	transform-origin: right;
 }
 
-.christmas-shadow {
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	top: 0;
-	background-color: rgba(0, 0, 0, 0.8);
-	border-radius: 40px;
-	z-index: 1;
-	animation: shadow 5s forwards;
+.one:hover::after {
+	transform: scaleX(1);
+	transform-origin: left;
+
 }
 
-.christmas-box {
+.two::after,
+.two::before {
+	content: '';
 	position: absolute;
+	height: 0;
+	width: 0;
+	transition: height, width, 0.3s;
+}
+
+.two::after {
+	bottom: -2px;
+	right: -8px;
+	border-bottom: 0 solid rgb(223, 135, 54);
+	border-right: 0 solid rgb(223, 135, 54);
+}
+
+.two::before {
+	top: -2px;
+	left: -8px;
+	border-top: 0 solid rgb(223, 135, 54);
+	border-left: 0 solid rgb(223, 135, 54);
+}
+
+
+.two:hover::after,
+.two:hover::before {
+	width: 50%;
+	height: 50%;
+}
+
+.two:hover::after {
+	border-bottom: 3px solid rgb(223, 135, 54);
+	border-right: 3px solid rgb(223, 135, 54);
+}
+
+.two:hover::before {
+	border-top: 3px solid rgb(223, 135, 54);
+	border-left: 3px solid rgb(223, 135, 54);
+}
+
+.three::after,
+.three::before {
+	content: '';
+	position: absolute;
+	background-color: rgb(223, 135, 54);
+	bottom: 0;
+	width: 0;
+	border-bottom: 2px solid rgb(223, 135, 54);
+	transition: .3s;
+}
+
+.three::before {
+	right: 50%;
+}
+
+.three::after {
 	left: 50%;
-	bottom: 120%;
-	transform: translate(-50%, -50%);
-	background-color: transparent;
-	z-index: 2;
-	opacity: 1;
-	animation: down 5s 5s forwards;	
 }
 
-.christmas-text {
-	top: 50%;
-	display: inline-block;
-	font-size: 18px;
-	color: whitesmoke;
-	text-shadow: 0 0 9px black;
-	opacity: 1;
+.three:hover::after,
+.three:hover::before {
+	width: 50%;
 }
 
-.red {
-	color: red;
-	opacity: 0;
-	animation: blurred 4s 5s forwards;
-}
-
-.magic {
-	opacity: 0;
-	animation: blurwhite 4s 6s forwards;
-}
-
-.hide {
+.four::after {
+	content: '';
 	position: absolute;
-	opacity: 0;
-	top: 200%;
+	width: 100%;
+	height: 0;
+	left: 0;
+	bottom: 0;
+	background-color: rgba(223, 135, 54, 0.6);
+	transition: height .3s;
 }
 
-.upper {
-	text-transform: uppercase;
+.four:hover::after {
+	height: 100%;
 }
 
-.underline {
+.five::after,
+.five::before {
+	content: '';
 	position: absolute;
-	height: 5px;
-	width: 350px;
-	right: 100%;
-	background-color: red;
--webkit-box-shadow: 0px 0px 32px 9px rgba(255, 0, 0, 1);
--moz-box-shadow: 0px 0px 32px 9px rgba(255, 0, 0, 1);
-box-shadow: 0px 0px 32px 9px rgba(255, 0, 0, 1);
-	margin: 10px auto;
-	opacity: 0;
-	animation: line 4s 7s forwards;
+	height: 100%;
+	width: 0;
+	bottom: 0;
+	background-color: rgba(223, 135, 54, 0.6);
+	transition: 0.3s;
 }
 
-@keyframes down {
-	from {
-		bottom: 90%;
-	}
-
-	to {
-		bottom: 40%;
-	}
+.five::after {
+	left: 0;
 }
 
-@keyframes blurred {
-	from {
-		filter: blur(8px);
-		opacity: 0;
-	}
-
-	to {
-		filter: blur(0);
-		opacity: 1;
-	}
+.five::before {
+	right: 0;
 }
 
-@keyframes blurwhite {
-	from {
-		filter: blur(8px);
-		opacity: 0;
-	}
-
-	to {
-		filter: blur(0);
-		opacity: 1;
-	}
+.five:hover::after {
+	width: 50%;
 }
 
-@keyframes shadow {
-	from {
-		background-color: rgba(0, 0, 0, 0.1);
-	}
-
-	to {
-		background-color: rgba(0, 0, 0, 0.8);
-	}
-}
-
-@keyframes line {
-	from {
-		right: 100%;
-		opacity: 0;
-	}
-
-	to {
-		right: 7%;
-		opacity: 1;
-	}
+.five:hover::before {
+	width: 50%;
 }
