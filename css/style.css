@@ -5,179 +5,141 @@
 }
 
 body {
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	height: 100vh;
-	font-family: 'Pacifico', sans-serif;
-	background-color: #333;
+	font-family: 'Ubuntu', sans-serif;
 	overflow: hidden;
+	color: #fff;
+	background: linear-gradient(10deg, #941cda 60%, #5c0f80 60%);
 }
 
-button {
-	position: relative;
-	margin: 20px;
-	padding: 30px 50px;
-	font-size: 30px;
-	border-radius: 8px;
-	background: none;
-	color: white;
-	border: 1px solid rgb(255, 255, 255);
+nav {
+	margin-top: 100px;
+	background-color: #292929;
+	text-align: center;
+}
+
+ul {
+	list-style: none;
+	font-size: 24px;
+}
+
+.menu-item {
+	display: inline-block;
+	height: 100px;
+	width: 300px;
+	line-height: 100px;
 	cursor: pointer;
-	text-transform: uppercase;
-	overflow: hidden;
+	transition: background-color 0.3s;
 }
 
-button::after, button::before {
+.menu-item:hover {
+	background-color: rgb(97, 92, 92);
+}
+
+.dropdown {
 	position: absolute;
+	width: 300px;
+}
+
+.dropdown li {
+	display: none;
+	opacity: 0;
+	background-color: rgb(97, 92, 92);
+	transition: color 0.3s;
+
+}
+
+.dropdown li:hover {
+	color: rgb(49, 52, 255);
+}
+
+.menu-item:hover .dropdown li {
 	display: block;
-	content: '';
-	transition: all 0.5s;
-	z-index: -1;
-}
-/* cash */
-.cash {
-	height: 80px;
-	width: 180px;
+	animation: menu1 .5s forwards;
 }
 
-.cash:after {
-	height: 100%;
-	top: 0;
-	left: -10px;
-	border: 1px solid rgb(255, 255, 255);
+.menu-item:hover .dropdown li:nth-child(2) {
+	animation-delay: .2s;
+}
+.menu-item:hover .dropdown li:nth-child(3) {
+	animation-delay: .4s;
+}
+.menu-item:hover .dropdown li:nth-child(4) {
+	animation-delay: .6s;
+}
+.menu-item:hover .dropdown li:nth-child(5) {
+	animation-delay: .8s;
+}
+.menu-item:hover .dropdown li:nth-child(6) {
+	animation-delay: 1s;
 }
 
-.cash::before {
-	width: 100%;
-	top: -10px;
-	left: 0;
-	border: 2px solid rgb(255, 255, 255);
+
+@keyframes menu1 {
+	from {
+		opacity: 0;
+		transform: rotate(30deg);
+	}
+
+	to {
+		opacity: 1;
+		transform: rotate(0deg);
+	}
 }
 
-.cash:hover::after {
-	left: 180px;
+/* two */
+.two:hover .dropdown li {
+	display: block;
+	animation: menu2 .5s forwards;
 }
 
-.cash:hover::before {
-	top: 90px;
+@keyframes menu2 {
+	from {
+		opacity: 0;
+		transform: translateY(60px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
-.span1, .span2 {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	transition: all .5s;
+/* three */
+
+.three:hover .dropdown li {
+	display: block;
+	animation: menu3 .5s forwards;
 }
 
-.cash:hover .span1 {
-	left: 120%;
-	top: 120%;
+@keyframes menu3 {
+	from {
+		opacity: 0;
+		transform: translateX(60px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
-.span2 {
-	left: -50%;
-	transition: 0.5s .1s;
+/* four */
+
+.four:hover .dropdown li {
+	display: block;
+	animation: menu4 .5s forwards;
+	transform-origin: top;
 }
 
-.cash:hover .span2 {
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-}
+@keyframes menu4 {
+	from {
+		opacity: 0;
+		transform: scaleX(.6);
+	}
 
-/* slice */
-
-.slice::after, .slice::before {
-	width: 100%;
-	height: 100%;
-	background-color: rgb(64, 187, 33);
-}
-
-.slice::after {
-	top: 50%;
-	left: -150%;
-}
-
-.slice::before {
-	bottom: 50%;
-	right: -150%;
-}
-
-.slice:hover::after {
-	left: 0;
-}
-
-.slice:hover::before {
-	right: 0;
-}
-
-/* hmm */
-
-.hmm {
-	border: none;
-	transition: 0.5s;
-}
-
-.hmm:hover {
-	box-shadow: 2px 3px 0 0 rgb(230, 230, 230), inset 11px 6px 10px rgb(12, 12, 12);
-}
-
-/* border */
-
-.border {
-	border-radius: 0;
-	overflow: visible;
-	transition: 0.8s;
-}
-.border:after, .border:before {
-	height: 100%;
-	width: 100%;
-}
-
-.border:after {
-	top: 0;
-	left: 0;
-}
-
-.border:before {
-	bottom: 0;
-	right: 0;
-}
-
-.border:hover::after {
-	top: -10px;
-	left: -10px;
-	border-top: 4px solid rgb(64, 187, 33);
-	border-left: 4px solid rgb(64, 187, 33);
-}
-
-.border:hover::before {
-	bottom: -10px;
-	right: -10px;
-	border-bottom: 4px solid rgb(64, 187, 33);
-	border-right: 4px solid rgb(64, 187, 33);
-}
-
-.border:hover {
-	color: rgb(64, 187, 33);
-	border: 1px solid transparent;
-}
-
-/* glass */
-
-
-.glass::after {
-	height: 250%;
-	width: 100px;
-	top: -60px;
-	left: -150px;
-	background: linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
-	transform: rotate(30deg);
-	transition: 0.5s;
-}
-
-.glass:hover::after {
-	left: 130%;
+	to {
+		opacity: 1;
+		transform: scaleX(1);
+	}
 }
