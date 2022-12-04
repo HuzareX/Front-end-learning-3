@@ -14,152 +14,170 @@ body {
 	overflow: hidden;
 }
 
-.box {
-	padding: 80px 140px;
-	box-shadow: inset 0 0 50px tomato;
-	border-radius: 20px;
-	background-color: rgba(255, 0, 0, 0.2);
-}
-
-.link {
+button {
 	position: relative;
-	padding: 10px 20px;
+	margin: 20px;
+	padding: 30px 50px;
 	font-size: 30px;
-	color: rgb(199, 138, 81);
-	text-decoration: none;
-
+	border-radius: 8px;
+	background: none;
+	color: white;
+	border: 1px solid rgb(255, 255, 255);
+	cursor: pointer;
+	text-transform: uppercase;
+	overflow: hidden;
 }
 
-.link:hover {
-	cursor: none;
-}
-
-.link,
-.link::after,
-.link::before {
-	transition: transform .3s;
-}
-
-.one::after {
-	content: '';
+button::after, button::before {
 	position: absolute;
-	height: 3px;
+	display: block;
+	content: '';
+	transition: all 0.5s;
+	z-index: -1;
+}
+/* cash */
+.cash {
+	height: 80px;
+	width: 180px;
+}
+
+.cash:after {
+	height: 100%;
+	top: 0;
+	left: -10px;
+	border: 1px solid rgb(255, 255, 255);
+}
+
+.cash::before {
 	width: 100%;
-	background-color: rgb(223, 135, 54);
+	top: -10px;
 	left: 0;
-	bottom: 0;
-	transform: scaleX(0);
-	transform-origin: right;
+	border: 2px solid rgb(255, 255, 255);
 }
 
-.one:hover::after {
-	transform: scaleX(1);
-	transform-origin: left;
-
+.cash:hover::after {
+	left: 180px;
 }
 
-.two::after,
-.two::before {
-	content: '';
+.cash:hover::before {
+	top: 90px;
+}
+
+.span1, .span2 {
 	position: absolute;
-	height: 0;
-	width: 0;
-	transition: height, width, 0.3s;
-}
-
-.two::after {
-	bottom: -2px;
-	right: -8px;
-	border-bottom: 0 solid rgb(223, 135, 54);
-	border-right: 0 solid rgb(223, 135, 54);
-}
-
-.two::before {
-	top: -2px;
-	left: -8px;
-	border-top: 0 solid rgb(223, 135, 54);
-	border-left: 0 solid rgb(223, 135, 54);
-}
-
-
-.two:hover::after,
-.two:hover::before {
-	width: 50%;
-	height: 50%;
-}
-
-.two:hover::after {
-	border-bottom: 3px solid rgb(223, 135, 54);
-	border-right: 3px solid rgb(223, 135, 54);
-}
-
-.two:hover::before {
-	border-top: 3px solid rgb(223, 135, 54);
-	border-left: 3px solid rgb(223, 135, 54);
-}
-
-.three::after,
-.three::before {
-	content: '';
-	position: absolute;
-	background-color: rgb(223, 135, 54);
-	bottom: 0;
-	width: 0;
-	border-bottom: 2px solid rgb(223, 135, 54);
-	transition: .3s;
-}
-
-.three::before {
-	right: 50%;
-}
-
-.three::after {
 	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	transition: all .5s;
 }
 
-.three:hover::after,
-.three:hover::before {
-	width: 50%;
+.cash:hover .span1 {
+	left: 120%;
+	top: 120%;
 }
 
-.four::after {
-	content: '';
-	position: absolute;
+.span2 {
+	left: -50%;
+	transition: 0.5s .1s;
+}
+
+.cash:hover .span2 {
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* slice */
+
+.slice::after, .slice::before {
 	width: 100%;
-	height: 0;
-	left: 0;
-	bottom: 0;
-	background-color: rgba(223, 135, 54, 0.6);
-	transition: height .3s;
-}
-
-.four:hover::after {
 	height: 100%;
+	background-color: rgb(64, 187, 33);
 }
 
-.five::after,
-.five::before {
-	content: '';
-	position: absolute;
-	height: 100%;
-	width: 0;
-	bottom: 0;
-	background-color: rgba(223, 135, 54, 0.6);
-	transition: 0.3s;
+.slice::after {
+	top: 50%;
+	left: -150%;
 }
 
-.five::after {
+.slice::before {
+	bottom: 50%;
+	right: -150%;
+}
+
+.slice:hover::after {
 	left: 0;
 }
 
-.five::before {
+.slice:hover::before {
 	right: 0;
 }
 
-.five:hover::after {
-	width: 50%;
+/* hmm */
+
+.hmm {
+	border: none;
+	transition: 0.5s;
 }
 
-.five:hover::before {
-	width: 50%;
+.hmm:hover {
+	box-shadow: 2px 3px 0 0 rgb(230, 230, 230), inset 11px 6px 10px rgb(12, 12, 12);
+}
+
+/* border */
+
+.border {
+	border-radius: 0;
+	overflow: visible;
+	transition: 0.8s;
+}
+.border:after, .border:before {
+	height: 100%;
+	width: 100%;
+}
+
+.border:after {
+	top: 0;
+	left: 0;
+}
+
+.border:before {
+	bottom: 0;
+	right: 0;
+}
+
+.border:hover::after {
+	top: -10px;
+	left: -10px;
+	border-top: 4px solid rgb(64, 187, 33);
+	border-left: 4px solid rgb(64, 187, 33);
+}
+
+.border:hover::before {
+	bottom: -10px;
+	right: -10px;
+	border-bottom: 4px solid rgb(64, 187, 33);
+	border-right: 4px solid rgb(64, 187, 33);
+}
+
+.border:hover {
+	color: rgb(64, 187, 33);
+	border: 1px solid transparent;
+}
+
+/* glass */
+
+
+.glass::after {
+	height: 250%;
+	width: 100px;
+	top: -60px;
+	left: -150px;
+	background: linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
+	transform: rotate(30deg);
+	transition: 0.5s;
+}
+
+.glass:hover::after {
+	left: 130%;
 }
