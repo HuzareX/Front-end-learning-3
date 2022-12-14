@@ -1,3 +1,6 @@
+@use './colors' as *;
+@use './mixins' as *;
+
 .wrapper {
     margin: 0 auto;
     width: 100%;
@@ -32,7 +35,7 @@
     &::before {
         display: block;
         content: "";
-        position: relative;
+        position: absolute;
         top: 0;
         left: 0;
         width: 100%;

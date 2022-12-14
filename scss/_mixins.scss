@@ -1,0 +1,17 @@
+@use './colors' as *;
+
+@mixin BurgerBtn {
+    position: absolute;
+    right: 0;
+    height: 3px;
+    content: '';
+    background-color: $pale;
+    transition: width 0.3s;
+}
+
+@mixin heroImages ($bgImg) {
+    background-image: $light-green-gradient, url($bgImg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
