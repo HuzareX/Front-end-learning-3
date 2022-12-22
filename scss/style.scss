@@ -56,7 +56,7 @@ body {
 		content: '';
 		height: 3px;
 		right: 0;
-		background-color: black;
+		background-color: $pale;
 		transition: width 0.3s;
 	}
 
@@ -88,7 +88,7 @@ body {
 	text-align: center;
 	height: 75vh;
 	color: $pale;
-	@include heroImages ('../img/coding-small.jpg');
+	@include heroImages('../img/coding-small.jpg');
 	background-attachment: scroll;
 
 	&__heading {
@@ -99,7 +99,7 @@ body {
 
 	&__text {
 		font-family: 'Cookie', sans-serif;
-		font-size: 3.8rem;
+		font-size: 3rem;
 		font-weight: 400;
 	}
 
@@ -115,5 +115,96 @@ body {
 		border: 1px solid $pale;
 		border-radius: 6px;
 		cursor: pointer;
+
+		&::before {
+			background-color: rgba($pale, 0.3);
+		}
+	}
+}
+
+// NAV
+
+.nav {
+	position: fixed;
+	top: 0;
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transform: translateX(100%);
+	transition: 0.5s;
+	background-image: $orange-gradient-solid;
+	z-index: 100;
+
+	&--active {
+		transform: translateX(0);
+	}
+
+	&__item {
+		position: relative;
+		display: block;
+		margin: 0.5em 0;
+		padding: 0.5em 2em;
+		font-size: 2.8rem;
+		text-decoration: none;
+		color: $pale;
+
+		&::before {
+			position: absolute;
+			content: "";
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 3px;
+			background-color: $pale;
+			transform: scaleY(0);
+			transition: transform 0.3s;
+		}
+
+		&:hover::before {
+			transform: scaleY(1);
+		}
+	}
+
+
+}
+
+// MEDIA
+
+@media (min-width: 768px) {
+	.white-block {
+		height: 50px;
+		width: 45%;
+	}
+
+	.header {
+		&__heading {
+			font-size: 6.6rem;
+		}
+
+		&__text {
+			font-size: 4.2rem;
+		}
+
+		&__btn {
+			font-size: 1.6rem;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.burger-btn {
+		top: 20px;
+		right: 30px;
+	}
+
+	.header {
+		background-image: $light-darkorange-gradient url(/img/coding-big.jpg);
+		
+
+		&__heading {
+			font-size: 8rem;
+		}
 	}
 }

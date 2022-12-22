@@ -8,7 +8,7 @@
   position: absolute;
   height: 40px;
   width: 60%;
-  background-color: #ededee;
+  background-color: #FAF8F1;
 }
 .white-block-left {
   bottom: 0;
@@ -92,7 +92,7 @@ body {
   content: "";
   height: 3px;
   right: 0;
-  background-color: black;
+  background-color: #FAF8F1;
   transition: width 0.3s;
 }
 .burger-btn__bars {
@@ -117,8 +117,8 @@ body {
   padding: 2em;
   text-align: center;
   height: 75vh;
-  color: #ededee;
-  background-image: linear-gradient(45deg, rgba(129, 42, 187, 0.75), rgba(49, 202, 189, 0.75)), url("../img/coding-small.jpg");
+  color: #FAF8F1;
+  background-image: linear-gradient(45deg, rgba(202, 200, 71, 0.6), rgba(192, 124, 22, 0.6)), url("../img/coding-small.jpg");
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -131,19 +131,90 @@ body {
 }
 .header__text {
   font-family: "Cookie", sans-serif;
-  font-size: 3.8rem;
+  font-size: 3rem;
   font-weight: 400;
 }
 .header__btn {
   text-decoration: none;
   text-transform: uppercase;
-  color: #ededee;
+  color: #FAF8F1;
   font-weight: bold;
   margin-top: 2em;
   padding: 0.8em 1.6em;
   font-size: 1.4rem;
   background: none;
-  border: 1px solid #ededee;
+  border: 1px solid #FAF8F1;
   border-radius: 6px;
   cursor: pointer;
+}
+.header__btn::before {
+  background-color: rgba(250, 248, 241, 0.3);
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(100%);
+  transition: 0.5s;
+  background-image: linear-gradient(45deg, rgb(226, 162, 67), rgb(163, 102, 22));
+  z-index: 100;
+}
+.nav--active {
+  transform: translateX(0);
+}
+.nav__item {
+  position: relative;
+  display: block;
+  margin: 0.5em 0;
+  padding: 0.5em 2em;
+  font-size: 2.8rem;
+  text-decoration: none;
+  color: #FAF8F1;
+}
+.nav__item::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background-color: #FAF8F1;
+  transform: scaleY(0);
+  transition: transform 0.3s;
+}
+.nav__item:hover::before {
+  transform: scaleY(1);
+}
+
+@media (min-width: 768px) {
+  .white-block {
+    height: 50px;
+    width: 45%;
+  }
+  .header__heading {
+    font-size: 6.6rem;
+  }
+  .header__text {
+    font-size: 4.2rem;
+  }
+  .header__btn {
+    font-size: 1.6rem;
+  }
+}
+@media (min-width: 992px) {
+  .burger-btn {
+    top: 20px;
+    right: 30px;
+  }
+  .header {
+    background-image: linear-gradient(45deg, rgba(202, 200, 71, 0.6), rgba(192, 124, 22, 0.6)) url(/img/coding-big.jpg);
+  }
+  .header__heading {
+    font-size: 8rem;
+  }
 }/*# sourceMappingURL=style.css.map */
